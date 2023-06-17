@@ -1,0 +1,27 @@
+{
+  "name": "webcomponentsg8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "lit": "^2.7.5"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IIC3585-2023/web-components-grupo-08.git"
+  },
+  "keywords": [
+    "web-components",
+    "lit-element",
+    "javascript",
+    "lit"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IIC3585-2023/web-components-grupo-08/issues"
+  },
+  "homepage": "https://github.com/IIC3585-2023/web-components-grupo-08#readme"
+}
