@@ -1,6 +1,5 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import { my-element } from './my-element'
 /**
  * An example element.
  *
@@ -9,19 +8,9 @@ import { my-element } from './my-element'
  */
 @customElement('simple-component')
 export class MyElement extends LitElement {
-  /**
-   * Copy for the read the docs hint.
-   */
   @property()
   imageSrc = "https://www.paris.cl/dw/image/v2/BCHW_PRD/on/demandware.static/-/Sites-cencosud-master-catalog/default/dw6765eb15/images/imagenes-productos/704/394327-0000-001.jpg?sw=513&sh=654&sm=fit"
 
-  /**
-   * The number of times the button has been clicked.
-   */
-  @property({ type: Number })
-  count = 0
-
-  
   @property({})
   discount = this.attributes
 
@@ -48,6 +37,7 @@ export class MyElement extends LitElement {
                 <p class="price">$${this.discount_price}</p>
                 <p class="old-price">Normal:<s>$${this.price}</s></p>
             </div>
+            <star-rating></star-rating>
         </div>
     </div>
     `
@@ -77,7 +67,7 @@ export class MyElement extends LitElement {
     .image {
         display: flex;
         align-items: center;
-        justify-content: end;
+        justify-content: center;
     }
 
     .discount-text {
