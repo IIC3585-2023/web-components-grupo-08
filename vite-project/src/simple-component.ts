@@ -37,7 +37,10 @@ export class MyElement extends LitElement {
                 <p class="price">$${this.discount_price}</p>
                 <p class="old-price">Normal:<s>$${this.price}</s></p>
             </div>
-            <star-rating></star-rating>
+            <div>
+                <p class="star-title"> Click to rate: </p>
+                <star-rating></star-rating>
+            </div>
         </div>
     </div>
     `
@@ -56,6 +59,8 @@ export class MyElement extends LitElement {
     .card {
         background-color: #ffffff;
         padding: 5px;
+        display: flex;
+        flex-direction: column;
     }
 
     .header {
@@ -98,6 +103,11 @@ export class MyElement extends LitElement {
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+
+    .star-title {
+        font-weight: bold;
+        margin-bottom: 0px;
     }
   `
 }
