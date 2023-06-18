@@ -23,15 +23,13 @@ export class MyElement extends LitElement {
   @property({ type: Number })
   count = 0
 
+  
+  @property()
+  prop = this.attributes
+
   render() {
     return html`
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src=${viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://lit.dev" target="_blank">
-          <img src=${litLogo} class="logo lit" alt="Lit logo" />
-        </a>
       </div>
       <slot></slot>
       <div class="card">
@@ -39,6 +37,7 @@ export class MyElement extends LitElement {
           count is ${this.count}
         </button>
       </div>
+      <p class="read-the-docs">${this.prop}</p>
       <p class="read-the-docs">${this.docsHint}</p>
     `
   }
