@@ -61,3 +61,84 @@ class ExpandingList extends HTMLUListElement {
 
 // Define the new element
 customElements.define("expanding-list", ExpandingList, { extends: "ul" });
+class TreeItem2 extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.render();
+  }
+
+  render() {
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          display: block;
+          border-radius: 5px;
+          margin-bottom: 10px;
+          font-size: 16px;
+          font-family: Arial, sans-serif;
+        }
+
+        ul {
+          list-style-type: none;
+          padding-left: 25px;
+          font-size: 16px;
+          font-family: Arial, sans-serif;
+        }
+
+        li > button {
+          display: none;
+        }
+
+        li.has-children > button {
+          display: inline-block;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+
+        }
+
+        button {
+          cursor: pointer;
+        }
+
+        span {
+          color: black;
+        }
+      </style>
+
+      <li>
+        <button>+</button><slot></slot>
+        <ul>
+          <!-- Here goes the children elements -->
+        </ul>
+      </li>
+    `;
+  }
+
+  connectedCallback() {
+    const button = this.shadowRoot.querySelector("button");
+    const ul = this.shadowRoot.querySelector("ul");
+    const children = Array.from(this.children);
+
+    if (children.length > 0) {
+      const firstLi = this.shadowRoot.querySelector("li");
+      firstLi.classList.add("has-children");
+      ul.append(...children);
+      ul.style.display = "none";
+    }
+
+    button.addEventListener("click", () => {
+      const isExpanded = button.textContent === "-";
+      button.textContent = isExpanded ? "+" : "-";
+      ul.style.display = isExpanded ? "none" : "block";
+    });
+  }
+}
+
+customElements.define("tree-item2", TreeItem2);
