@@ -13,14 +13,6 @@ template.innerHTML = `
             display: none;
         }
 
-        .toggle-button {
-            width: 1ch;
-            height: 1ch;
-            padding-left: 1ch;
-            padding-bottom: 1.5ch;
-            padding-right: 0.5ch;
-        }
-
         .header {
             display: flex;
             flex-direction: row;
@@ -28,34 +20,16 @@ template.innerHTML = `
             gap: 5px;
         }
 
-        #categoryName {
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-
-        .children-container {
-            padding-left: 30px;
-            padding-top: 3px;
-            padding-bottom: 3px;
-            padding-right: 3px;
-        }
-
-        .main-container {
-            // border: 2px solid gray;
-            // border-radius: 5px;
-            background-color: rgb(245,245,245);
-        }
-
         .header:hover {
-            background-color: rgb(240,240,240);
+            background-color: lightblue;
         }
     </style>
-    <div class="main-container">
+    <div>
         <div class="header">
             <div class="toggle-button">⮞</div>
             <h3 id="categoryName"></h3>
         </div>
-        <div class="children-container">
+        <div class="child">
             <slot id="slotContent"></slot>
         </div>
     </div>
@@ -75,12 +49,12 @@ class TreeItem extends HTMLElement {
     toggleChildren = (event) => {
         event.stopPropagation()
         if (this.childrenVisible) {
-            this._shadowRoot.querySelector('.children-container').classList.add('invisible');
+            this._shadowRoot.querySelector('.child').classList.add('invisible');
             this.childrenVisible = false
             this.toggleButton.innerHTML = '⮞'
         }
         else {
-            this._shadowRoot.querySelector('.children-container').classList.remove('invisible');
+            this._shadowRoot.querySelector('.child').classList.remove('invisible');
             this.childrenVisible = true
             this.toggleButton.innerHTML = '⮟'
         }
@@ -112,7 +86,7 @@ class TreeItem extends HTMLElement {
                 this._shadowRoot.querySelector('#categoryName').appendChild(title);
             }
             // At the start, every child will be hidden.
-            this._shadowRoot.querySelector('.children-container').classList.add('invisible');
+            this._shadowRoot.querySelector('.child').classList.add('invisible');
             if (this._shadowRoot.querySelector('#slotContent').assignedNodes().length > 0) {
                 this.childrenVisible = false;
                 this.toggleButton.innerHTML = '⮞';
