@@ -92,14 +92,14 @@ class TreeItem2 extends HTMLElement {
 
         li.has-children > button {
           display: inline-block;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 50%;
-  background-color: #007bff;
-  color: #fff;
-  font-size: 14px;
-  text-align: center;
-  cursor: pointer;
+          padding: 8px 16px;
+          border: none;
+          border-radius: 50%;
+          background-color: #007bff;
+          color: #fff;
+          font-size: 14px;
+          text-align: center;
+          cursor: pointer;
 
         }
 
@@ -115,7 +115,6 @@ class TreeItem2 extends HTMLElement {
       <li>
         <button>+</button><slot></slot>
         <ul>
-          <!-- Here goes the children elements -->
         </ul>
       </li>
     `;
