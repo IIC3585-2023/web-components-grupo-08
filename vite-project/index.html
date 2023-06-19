@@ -8,6 +8,7 @@
     <script type="module" src="/src/simple-component.ts"></script>
     <script type="module" src="/src/star-rating.ts"></script>
     <script type="module" src="/src/list-expanding.js"></script>
+    <script type="module" src="/src/treeitem.js"></script>
   </head>
 
   <body>
@@ -87,5 +88,19 @@
         </ul>
       </li>
     </ul>
+
+    <tree-item depth="0">Root
+      <tree-item depth="1">Child 1</tree-item>
+      <tree-item depth="1">Child 2
+          <tree-item depth="2">Grandchild 1</tree-item>
+          <tree-item depth="2">Grandchild 2</tree-item>
+      </tree-item>
+      <tree-item depth="1">Child 3
+          <tree-item depth="2">Grandchild 3</tree-item>
+      </tree-item>
+  </tree-item>
+  
+    
+    
   </body>
 </html>
